@@ -26,7 +26,12 @@ jobs:
         with:
           name: lame4j-linux-x86-64
           path: ./rust/target/release/liblame4j.so
-
+      - name: Upload release asset
+        uses: AButler/upload-release-assets@v2.0.2
+        with:
+          files: ./rust/target/release/liblame4j.so
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          
   build-linux-x86:
     runs-on: ubuntu-22.04
     defaults:
